@@ -5,12 +5,18 @@ router.get('/hello', (req, res) => {
 });
 
 router.get(['/','/index'], (req, res) => {
-	res.render('index');
+	res.render('index', {
+		titulek: 'Můj web',
+		jmeno: 'Bozi pritomnost',
+		datum: new Date().toLocaleDateString(),
+	});
 });
 
 
 router.use((req, res) => {
-    res.render('error');
+    res.render('error', {
+		titulek: 'Chyba',
+	});
 });
 
 

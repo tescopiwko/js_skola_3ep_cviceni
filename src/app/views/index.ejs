@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Můj web</title>
+    <title><%= titulek%></title>
 </head>
 <body>
-    <% let jmeno = 'Bozi pritomnost'; %>
-    <h1>Můj web</h1>
+    <%# let jmeno = 'Bozi pritomnost'; %> 
+    <h1><%= titulek%></h1>
     <p>Vítejte u mě! <i>(<%= jmeno %>)</i></p>
-	<p>Dnes je <b><%= new Date() %></b></p>
+	<p>Dnes je <b><%= datum %></b></p>
 </body>
 </html>
