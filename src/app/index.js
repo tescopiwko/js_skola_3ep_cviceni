@@ -2,6 +2,8 @@ const express = require('express');
 
 const app = express();
 
+const mineRoutes = require('./routes/defaultRouter');
+
 
 app.set('view engine', 'ejs');
 
@@ -10,12 +12,6 @@ app.set('views', './app/views');
 app.use(express.static('public'));
 
 
-app.get('/hello', (req, res) => {
-	res.send('Nodemon funguje');
-});
-
-app.get(['/', '/index'], (req, res) => {
-	res.render('index');
-});
+app.use(mineRoutes);
 
 module.exports = app;
