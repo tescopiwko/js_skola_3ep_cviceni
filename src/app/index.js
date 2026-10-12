@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 
 app.get('/hello', (req, res) => {
-	res.send('Hello World from Express!');
+	res.send('Nodemon funguje');
 });
 
 app.get(['/', '/index'], (req, res) => {
