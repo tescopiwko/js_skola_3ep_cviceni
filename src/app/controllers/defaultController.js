@@ -1,7 +1,7 @@
 exports.index = (req, res) => {
 	res.render('index', {
 		titulek: 'Můj web',
-		jmeno: 'Jakub Šenkýř',
+		jmeno: 'Bozi pritomnost',
 		datum: new Date().toLocaleDateString(),
 	});
 }

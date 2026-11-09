@@ -7,6 +7,8 @@ const router = require('express').Router();
 // co se da chtit pomoci URL s posts
 //  vsechny URL zacinaly /posts, jinak
 //  by nas sem defaultRouter neposlal
+router.get('/delete/:id', controller.deletePost);
+router.post('/new', controller.addPost);
 router.get('/:id', controller.showPost);
 router.get('/', controller.allPosts);
 
