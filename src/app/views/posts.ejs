@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title><%= titulek %></title>
 </head>
 <body>
@@ -13,8 +13,7 @@
     <% } else { %>
     <% for(let i = 0; i < prispevky.length; i++) { %>
         <div id="<%= prispevky[i].id %>">
-            <h2><%= prispevky[i].nadpis %></h2>
-            <p><%= prispevky[i].obsah %></p>
+            <p><%= prispevky[i].nadpis %> <a href="posts/<%= prispevky[i].id %>">detail</a></p>
         </div>
     <% }} %>
 </body>

@@ -14,6 +14,18 @@ router.get(['/','/index'], (req, res) => {
 	});
 });
 
+router.get('/posts/:id', (req, res) => {
+	// vyzvednuti parametru z URL
+	const id = req.params.id;
+	// nacteni dat pomoci modelu
+	const prispevek = model.nacistPrispevek(id);
+
+	res.render('post', {
+		titulek: 'Příspěvek',
+		prispevek: prispevek,
+	});
+});
+
 router.get('/posts', (req, res) => {
 	res.render('posts', {
 		titulek: 'Příspěvky',
