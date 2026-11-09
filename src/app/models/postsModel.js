@@ -3,11 +3,13 @@ const jsondb = require('simple-json-db');
 
 const db = new jsondb('../data/posts.json');
 
-// nabizena funkcnost modelu
+// nacteni vsech prispevku z databaze
 exports.nacistPrispevky = () => {
     return db.JSON();
 }
 
+
+// nacteni konkretniho prispevku z databaze
 exports.nacistPrispevek = (id) => {
     const prispevky = db.JSON();
 

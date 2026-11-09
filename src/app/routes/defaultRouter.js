@@ -1,44 +1,13 @@
 const router = require('express').Router();
 
-const model = require('../models/postsModel.js');
+const controller = require('../controllers/defaultController.js');
 
-router.get('/hello', (req, res) => {
-	res.send('Hello World from Express!');
-});
-
-router.get(['/','/index'], (req, res) => {
-	res.render('index', {
-		titulek: 'Můj web',
-		jmeno: 'Bozi pritomnost',
-		datum: new Date().toLocaleDateString(),
-	});
-});
-
-router.get('/posts/:id', (req, res) => {
-	// vyzvednuti parametru z URL
-	const id = req.params.id;
-	// nacteni dat pomoci modelu
-	const prispevek = model.nacistPrispevek(id);
-
-	res.render('post', {
-		titulek: 'Příspěvek',
-		prispevek: prispevek,
-	});
-});
-
-router.get('/posts', (req, res) => {
-	res.render('posts', {
-		titulek: 'Příspěvky',
-		prispevky: model.nacistPrispevky(),
-	});
-});
-
-
-router.use((req, res) => {
-    res.render('error', {
-		titulek: 'Chyba',
-	});
-});
+// pokud URL zacina /posts, zpracovava ji specializovany router
+router.use('/posts', require('./postsRouter.js'));
+// indexova stranka cele aplikace
+router.get(['/','/index'], controller.index);
+// jakakoli jina URL je chybou
+router.use(controller.error);
 
 
 module.exports = router;
