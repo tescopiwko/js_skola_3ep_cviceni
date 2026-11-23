@@ -40,7 +40,11 @@ exports.smazatPrispevek = (id) => {
 
 
 exports.pridatPrispevek = (nadpis, obsah) => {
-    const prispevky = db.JSON();
+    let prispevky = db.JSON();
+
+    if (!Array.isArray(prispevky)) {
+        prispevky = [];
+    }
 
     // urceni noveho ID
     let noveId = 1;

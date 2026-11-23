@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title><%= titulek %></title>
-</head>
-<body>
-    <h1><%= titulek %></h1>
-    <header>
-        <a href="/index">Domů</a>
-        <span> | </span>
-        <a href="/posts">Příspěvky</a>
-        <span> | </span>
-        <a href="/users">Uživatelé</a>
-        <span> | </span>
-        <a href="/about">O aplikaci</a>
-        <hr />
-    </header>
-    <main>
+<%- include('_partials/heads') %>
 
     <% if(typeof prispevek == 'undefined' || prispevek == false) { %>
         <p><i>Takový příspěvek neexistuje.</i></p>
@@ -30,10 +10,4 @@
     <% } %>
     <a href="/posts">Zpět</a>
 
-    </main>
-    <footer>
-        <hr />
-        <span>© 2026 Jakub Šenkýř</span>
-    </footer>
-</body>
-</html>
+<%- include('_partials/tails') %>
