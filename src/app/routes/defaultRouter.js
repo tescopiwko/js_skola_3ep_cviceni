@@ -6,6 +6,8 @@ const controller = require('../controllers/defaultController.js');
 router.use('/posts', require('./postsRouter.js'));
 // indexova stranka cele aplikace
 router.get(['/','/index'], controller.index);
+// stranka "o aplikaci"
+router.get('/about', controller.about);
 // jakakoli jina URL je chybou
 router.use(controller.error);
 

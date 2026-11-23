@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1><%= titulek %></h1>
+    <header>
+        <a href="/index">Domů</a>
+        <span> | </span>
+        <a href="/posts">Příspěvky</a>
+        <span> | </span>
+        <a href="/users">Uživatelé</a>
+        <span> | </span>
+        <a href="/about">O aplikaci</a>
+        <hr />
+    </header>
+    <main>
+
     <% if(typeof prispevek == 'undefined' || prispevek == false) { %>
         <p><i>Takový příspěvek neexistuje.</i></p>
     <% } else { %>
@@ -17,5 +29,11 @@
         </div>
     <% } %>
     <a href="/posts">Zpět</a>
+
+    </main>
+    <footer>
+        <hr />
+        <span>© 2026 Jakub Šenkýř</span>
+    </footer>
 </body>
 </html>

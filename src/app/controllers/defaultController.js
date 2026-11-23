@@ -1,8 +1,14 @@
 exports.index = (req, res) => {
 	res.render('index', {
 		titulek: 'Můj web',
-		jmeno: 'Bozi pritomnost',
-		datum: new Date().toLocaleDateString(),
+	});
+}
+
+// stranka "o aplikaci"
+exports.about = (req, res) => {
+	res.render('about', {
+		titulek: 'O aplikaci',
+
 	});
 }
 
