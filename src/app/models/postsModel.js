@@ -1,8 +1,6 @@
-
 const jsondb = require('simple-json-db');
 
 const db = new jsondb('../data/posts.json');
-
 // nacteni vsech prispevku z databaze
 exports.nacistPrispevky = () => {
     return db.JSON();
