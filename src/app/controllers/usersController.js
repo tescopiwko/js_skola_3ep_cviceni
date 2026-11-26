@@ -40,6 +40,17 @@ exports.profile = (req, res) => {
     });
 }
 
+exports.privateSector = (req, res) => {
+    if(!req.session.prihlasenyUzivatel) {
+        return res.redirect('/users');
+    }
+
+    res.render('private_sector', {
+        titulek: 'Privátní zóna',
+        prihlasenyUzivatel: req.session.prihlasenyUzivatel,
+    });
+}
+
 exports.getOut = (req, res) => {
     req.session.destroy();
     res.redirect('/users');
