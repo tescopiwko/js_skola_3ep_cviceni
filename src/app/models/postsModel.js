@@ -21,11 +21,11 @@ exports.nacistPrispevek = (id) => {
 };
 
 // smazani konkretniho prispevku
-exports.smazatPrispevek = (id) => {
+exports.smazatPrispevek = (id, name) => {
     const prispevky = db.JSON();
 
     for(let i = 0; i < prispevky.length; i++) {
-        if(prispevky[i].id == id) {
+        if(prispevky[i].id == id && name === prispevky[i].autor) {
             prispevky.splice(i, 1);
             db.JSON(prispevky);
             db.sync();
@@ -37,7 +37,8 @@ exports.smazatPrispevek = (id) => {
 }
 
 
-exports.pridatPrispevek = (nadpis, obsah) => {
+
+exports.pridatPrispevek = (nadpis, obsah, autor) => {
     let prispevky = db.JSON();
 
     if (!Array.isArray(prispevky)) {
@@ -65,6 +66,7 @@ exports.pridatPrispevek = (nadpis, obsah) => {
         id: noveId,
         nadpis,
         obsah,
+        autor
     });
 
     db.JSON(prispevky);
