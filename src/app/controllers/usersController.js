@@ -44,3 +44,30 @@ exports.getOut = (req, res) => {
     req.session.destroy();
     res.redirect('/users');
 }
+
+exports.leaveForm = (req, res) => {
+    if(!req.session.prihlasenyUzivatel) {
+        return res.redirect('/users');
+    }
+
+    res.render('leave', {
+        titulek: 'Zrušení účtu',
+        prihlasenyUzivatel: req.session.prihlasenyUzivatel,
+    });
+}
+
+exports.leaveConfirm = (req, res) => {
+    if(!req.session.prihlasenyUzivatel) {
+        return res.redirect('/users');
+    }
+
+    const heslo = req.body.heslo;
+    
+    if(!model.spravneHeslo(req.session.prihlasenyUzivatel, heslo)) {
+        return res.redirect('/users/leave');
+    }
+
+    model.odstranitUzivatele(req.session.prihlasenyUzivatel);
+    req.session.destroy();
+    res.redirect('/users');
+}

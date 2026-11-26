@@ -1,0 +1,9 @@
+<%- include('_partials/heads') %>
+
+    <h2>Opravdu chcete zrušit svůj účet?</h2>
+    <form action="/users/leave" method="post">
+        <input type="password" name="heslo" placeholder="Potvrďte heslem..." required />
+        <input type="submit" value="Nevratně zrušit účet" />
+    </form>
+
+<%- include('_partials/tails') %>
